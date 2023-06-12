@@ -12,12 +12,15 @@ $TTL 1h
                 IN      NS      ns1.example.net.
 ns1             IN      A       10.0.20.32
 ns2             IN      A       10.0.20.33
+ns1             IN      AAAA    fe80:32
+ns2             IN      AAAA    fe80:23
 
 ; mail servers
                 IN      MX  10  mail.example.net.
 mail            IN      A       10.0.20.32
+mail            IN      AAAA    fe80:32
 
 ; A, AAAA, CNAME
 @               IN      A       10.0.20.32
-@               IN      AAAA    fe80::1
+@               IN      AAAA    fe80::32
 www             IN      CNAME   @
