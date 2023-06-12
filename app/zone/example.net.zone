@@ -20,6 +20,9 @@ ns2             IN      AAAA    fe80::33
 mail            IN      A       10.0.20.32
 mail            IN      AAAA    fe80::32
 
+; TXT
+@               IN      TXT     "I'm an example"
+
 ; A, AAAA, CNAME
 @               IN      A       10.0.20.32
 @               IN      AAAA    fe80::32
