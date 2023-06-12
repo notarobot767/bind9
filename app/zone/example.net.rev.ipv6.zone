@@ -1,0 +1,19 @@
+$TTL 1h
+@	              IN      SOA	    ns1.example.net. donotreply.example.net. (
+  20210107;         #Serial
+  1h;               #Refresh                #default value in minutes
+  120;              #Retry                  #default value in seconds
+  1h;               #Expire                 #default value in minutes
+  1h;               #Negative caching TTL   #default value in minutes
+)
+
+;name servers
+                IN      NS      ns1.example.net.
+                IN      NS      ns2.example.net.
+
+$ORIGIN 0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.8.e.f.ip6.arpa.
+;https://learning.oreilly.com/library/view/dns-and-bind/9781449308025/ch01.html#delegation_and_reverse-mapping_zones
+
+;ptr records
+2.3.0.0         IN      PTR     ns1.example.net.
+3.3.0.0         IN      PTR     ns2.example.net.
