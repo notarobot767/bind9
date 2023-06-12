@@ -9,18 +9,23 @@ $TTL 1h
 
 ; name servers
                 IN      NS      ns1.example.net.
-                IN      NS      ns1.example.net.
+                IN      NS      ns2.example.net.
 ns1             IN      A       10.0.20.32
 ns2             IN      A       10.0.20.33
-ns1             IN      AAAA    fe80:32
-ns2             IN      AAAA    fe80:23
+ns1             IN      AAAA    fe80::32
+ns2             IN      AAAA    fe80::33
 
 ; mail servers
                 IN      MX  10  mail.example.net.
 mail            IN      A       10.0.20.32
-mail            IN      AAAA    fe80:32
+mail            IN      AAAA    fe80::32
 
 ; A, AAAA, CNAME
 @               IN      A       10.0.20.32
 @               IN      AAAA    fe80::32
 www             IN      CNAME   @
+
+;some resolvers will lookup AAAA before A records, even if the host lacks ability to communicate with IPv6
+;depending on environment, might be worth having seperate IPv4 and IPv6 domains
+;ex) www and www-v6
+;https://learning.oreilly.com/library/view/dns-and-bind/9781449308025/ch01.html#adding_aaaa_records_to_forward-mapping_z
